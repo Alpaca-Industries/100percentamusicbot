@@ -10,7 +10,7 @@ export class StopCommand extends Command {
 	public async chatInputRun(interaction: CommandInteraction) {
 		let queue = this.container.musicPlayer.getQueue(interaction.guild!.id);
 
-		await queue?.stop();
+		queue?.stop();
 		return interaction.reply(`Goodbye, have a nice day!`);
 	}
 

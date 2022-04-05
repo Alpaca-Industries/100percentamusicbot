@@ -21,6 +21,8 @@ export class QueueCommand extends Command {
 			await queue.join(voiceChannel);
 		}
 
+		if (queue.songs.length === 0) return interaction.reply('The queue is empty.');
+
 		const paginatedEmbed = new PaginatedMessage();
 		paginatedEmbed.addPageEmbed(embed => {
 			return embed

@@ -10,6 +10,10 @@ export class SkipCommand extends Command {
 	public async chatInputRun(interaction: CommandInteraction) {
 		let queue = this.container.musicPlayer.getQueue(interaction.guild!.id);
 
+		if (queue?.songs?.length === 0) {
+			return interaction.reply('There are no songs in the queue!');
+		}
+
 		let skippedSong = await queue?.skip();
 		return interaction.reply(`Skipped [**${skippedSong?.name}**](${skippedSong?.url})`);
 	}

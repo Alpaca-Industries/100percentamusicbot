@@ -12,9 +12,8 @@ export class SetVolumeCommand extends Command {
 
 		let newVolume = interaction.options.getInteger('volume');
 
-		if (newVolume != null) {
-			queue?.setVolume(newVolume);
-		}
+		if (newVolume != null) queue?.setVolume(newVolume);
+
 		return interaction.reply(`Set the volume to ${queue?.volume}%`);
 	}
 
